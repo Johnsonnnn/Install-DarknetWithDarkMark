@@ -3,6 +3,15 @@ MAINDIR=$(pwd)
 # Darknet
 git clone https://github.com/AlexeyAB/darknet.git
 cd darknet
+sed -i.bak \
+    -e "s/GPU=0/GPU=1/g" \
+    -e "s/CUDNN=0/CUDNN=1/g" \
+    -e "s/CUDNN_HALF=0/CUDNN_HALF=1/g" \
+    -e "s/OPENCV=0/OPENCV=1/g" \
+    -e "s/LIBSO=0/LIBSO=1/g" \
+    -e "s/USE_CPP=0/USE_CPP=1/g" \
+    Makefile
+
 mkdir build_release
 cd build_release
 cmake ..
