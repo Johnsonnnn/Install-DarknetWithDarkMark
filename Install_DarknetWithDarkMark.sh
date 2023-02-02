@@ -16,6 +16,8 @@ mkdir build_release
 cd build_release
 cmake ..
 cmake --build . --target install --parallel $(nproc)
+
+cd ${MAINDIR}/darknet
 sudo cp libdarknet.so /usr/local/lib/
 sudo cp include/darknet.h /usr/local/include/
 sudo ldconfig
